@@ -5,7 +5,9 @@ import dataFile from './data/data.json';
 const app = express();
 
 app.set('port', process.env.PORT || 3000);
+app.set('appData', dataFile);
 
+app.use(express.static('./public'))
 app.use(require('./routes/home'));
 app.use(require('./routes/speakers'));
 
@@ -13,6 +15,17 @@ app.use(require('./routes/speakers'));
 app.listen(app.get('port'), ()=> {
 	console.log("Server initiated on localhost:" + app.get('port'))
 });
+
+
+
+
+
+
+
+
+
+
+
 
 
 
