@@ -11,16 +11,16 @@ router.get('/speakers', (request,response) => {
 		info += `
 		<li>
 			<h2>${item.name}</h2>
-			<img src="/images/speakers/${item.shortname}_tn.gif"
-		alt="speaker" style="max-width:200px; border-radius: 50%;">
+			<img src="/images/speakers/${item.shortname}_tn_x.jpg"
+		alt="speaker" style="width:200px; border-radius: 50%;">
 			<p>${item.summary}</p>	
 		</li>
 		`;
 	});
 
 	response.send(`
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<h1>Greetings from the Ronnies' Node.js Server</h1>	
+		<link rel="stylesheet" type="text/css" href="/css/style.css">
+		<h1><b>Grunge Graveyard - Legends</b></h1>	
 		${info}
 		`);
 });
@@ -36,8 +36,8 @@ router.get('/speakers/:speakerid', (request,response) => {
 	response.send(`
 		<link rel="stylesheet" type="text/css" href="/css/style.css">
 		<h1>${speaker.title}</h1>
-		<img src="/images/speakers/${speaker.shortname}_tn.gif"
-		alt="speaker" style="max-width:200px; border-radius: 50%;">	
+		<img src="/images/speakers/${speaker.shortname}_tn_x.jpg"
+		alt="speaker" style="width:200px; border-radius: 50%;">	
 		<h3>Presented by: ${speaker.name}</h3>
 		<p>${speaker.summary}</p>
 		`);
