@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "babel-node": "babel-node --presets=env",
-    "start": "nodemon --exec npm run babel-node -- ./index.js",
+    "start": "nodemon --exec npm run babel-node -- ./app/index.js",
     "build": "babel src -d dist",
-    "test" : "test"
+    "test": "test"
   },
   "author": "ronyx_v2.0",
   "license": "ISC",
@@ -23,6 +23,7 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-0": "^6.24.1"
+    "babel-preset-stage-0": "^6.24.1",
+    "ejs": "^2.6.1"
   }
 }

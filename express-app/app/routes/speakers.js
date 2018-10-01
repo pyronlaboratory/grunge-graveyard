@@ -9,18 +9,18 @@ router.get('/speakers', (request,response) => {
 	let dataFile = request.app.get('appData');
 	dataFile.speakers.forEach((item) => {
 		info += `
-		<li>
-			<h2>${item.name}</h2>
+		<li style="display:block">
+			<h2 style="text-align:center">${item.name}</h2>
 			<img src="/images/speakers/${item.shortname}_tn_x.jpg"
-		alt="speaker" style="width:200px; border-radius: 50%;">
-			<p>${item.summary}</p>	
+		alt="speaker" style="width:200px; border-radius: 50%; display:block; margin-left: auto; margin-right: auto;">
+				
 		</li>
 		`;
 	});
 
 	response.send(`
 		<link rel="stylesheet" type="text/css" href="/css/style.css">
-		<h1><b>Grunge Graveyard - Legends</b></h1>	
+		<h1 style="text-align:center"><b>Grunge Graveyard - Legends</b></h1>	
 		${info}
 		`);
 });
@@ -35,10 +35,10 @@ router.get('/speakers/:speakerid', (request,response) => {
 
 	response.send(`
 		<link rel="stylesheet" type="text/css" href="/css/style.css">
-		<h1>${speaker.title}</h1>
+		<h1 style="text-align:center">${speaker.title}</h1>
 		<img src="/images/speakers/${speaker.shortname}_tn_x.jpg"
-		alt="speaker" style="width:200px; border-radius: 50%;">	
-		<h3>Presented by: ${speaker.name}</h3>
+		alt="speaker" style="width:200px; border-radius: 50%; display:block; margin-left: auto; margin-right: auto;">	
+		<h3 style="text-align:center">Lead Vocalist: ${speaker.name}</h3>
 		<p>${speaker.summary}</p>
 		`);
 });
