@@ -5,14 +5,14 @@ import dataFile from './data/data.json';
 const app = express();
 
 app.set('port', process.env.PORT || 3000);
-
 app.set('appData', dataFile);
-
 app.set('view engine','ejs');
 app.set('views','./app/views')
 
-app.use(express.static('./app/public'))
+app.locals.siteTitle = 'Grunge Graveyard';
+app.locals.allSpeakers = dataFile.speakers;
 
+app.use(express.static('./app/public'))
 app.use(require('./routes/home'));
 app.use(require('./routes/speakers'));
 
