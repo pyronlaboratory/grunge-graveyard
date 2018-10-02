@@ -1,6 +1,6 @@
 import express from 'express';
 import dataFile from './data/data.json';
-
+import reload from 'reload';
 
 const app = express();
 
@@ -17,11 +17,12 @@ app.use(require('./routes/home'));
 app.use(require('./routes/speakers'));
 
 
-app.listen(app.get('port'), ()=> {
+const server = app.listen(app.get('port'), ()=> {
 	console.log("Server initiated on localhost:" + app.get('port'))
 });
 
 
+reload(server, app);
 
 
 

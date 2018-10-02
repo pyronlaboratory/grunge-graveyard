@@ -5,7 +5,7 @@ const router = express.Router();
 /*Speakers Route*/
 router.get('/speakers', (request,response) => {
 
-	var info = '';
+/*	var info = '';
 	let dataFile = request.app.get('appData');
 	dataFile.speakers.forEach((item) => {
 		info += `
@@ -26,7 +26,27 @@ router.get('/speakers', (request,response) => {
 		<h1 style="text-align:center"><b>Grunge Graveyard - All Legends</b></h1>	
 		${info}
 		</div>
-		`);
+		`);*/
+
+  var data = request.app.get('appData');
+  var pagePhotos = [];
+  var pageSpeakers = data.speakers;
+
+  data.speakers.forEach(function(item) {
+    pagePhotos = pagePhotos.concat(item.artwork);
+  });
+
+  response.render('speakers', {
+    pageTitle: 'Grunge Legends',
+    artwork: pagePhotos,
+    speakers: pageSpeakers,
+    pageID: 'speakerList'
+  });
+
+
+
+
+
 });
 
 
@@ -34,7 +54,7 @@ router.get('/speakers', (request,response) => {
 /*Speaker Route*/
 router.get('/speakers/:speakerid', (request,response) => {
 
-	let dataFile = request.app.get('appData');
+	/*let dataFile = request.app.get('appData');
 	var speaker = dataFile.speakers[request.params.speakerid];
 
 	response.send(`
@@ -44,7 +64,26 @@ router.get('/speakers/:speakerid', (request,response) => {
 		alt="speaker" style="width:200px; border-radius: 50%; display:block; margin-left: auto; margin-right: auto;">	
 		<h3 style="text-align:center">Lead Vocalist: ${speaker.name}</h3>
 		<p>${speaker.summary}</p>
-		`);
+		`);*/
+
+
+	  var data = request.app.get('appData');
+	  var pagePhotos = [];
+	  var pageSpeakers = [];
+
+	  data.speakers.forEach(function(item) {
+	    if (item.shortname == request.params.speakerid) {
+	      pageSpeakers.push(item);
+	      pagePhotos = pagePhotos.concat(item.artwork);
+	    }
+	  });
+
+	  response.render('speakers', {
+	    pageTitle: 'Grunge Legends',
+	    artwork: pagePhotos,
+	    speakers: pageSpeakers,
+	    pageID: 'speakerDetail'
+	  });	
 });
 
 module.exports = router;
