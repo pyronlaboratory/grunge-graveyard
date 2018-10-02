@@ -13,7 +13,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.3",
-    "nodemon": "^1.18.4"
+    "nodemon": "^1.18.4",
+    "reload": "^2.3.1"
   },
   "babel": {
     "presets": [

@@ -20,8 +20,12 @@ router.get('/speakers', (request,response) => {
 
 	response.send(`
 		<link rel="stylesheet" type="text/css" href="/css/style.css">
-		<h1 style="text-align:center"><b>Grunge Graveyard - Legends</b></h1>	
+		<div style="background: url(../images/misc/background.jpg) no-repeat center center fixed; top: 0; left: 0; min-width: 100%;
+  min-height: 100%;">
+		<br>
+		<h1 style="text-align:center"><b>Grunge Graveyard - All Legends</b></h1>	
 		${info}
+		</div>
 		`);
 });
 
