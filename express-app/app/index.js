@@ -48,7 +48,7 @@ reload(server, app);
 var myServer = createServer((request, response)=>{
 	response.writeHead(200, {"Content-Type" : "text/plain"(or html)
 	});
-	response.write('<h1>Roux Meetups</h1>');
+	response.write('<h1>Grunge Graveyard</h1>');
 	response.end();
 });
 
